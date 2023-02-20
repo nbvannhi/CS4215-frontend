@@ -1,4 +1,4 @@
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 import { Builder } from 'xml2js';
 
 import { ExternalLibraryName } from '../application/types/ExternalTypes';
@@ -122,8 +122,8 @@ const makeLibrary = (deploymentArr: XmlParseStrDeployment[] | undefined): Librar
     const symbolsVal = external ? external[0].SYMBOL || [] : [];
     const globalsVal = deployment.GLOBAL
       ? (deployment.GLOBAL.map(x => [x.IDENTIFIER[0], altEval(x.VALUE[0]), x.VALUE[0]]) as Array<
-          [string, any, string]
-        >)
+        [string, any, string]
+      >)
       : [];
     return {
       external: {
@@ -322,7 +322,7 @@ export const assessmentToXml = (
       CHOICE: [] as any[]
     };
 
-    
+
     /* tslint:disable:no-string-literal */
     problem.$['DEPLOYMENT'] = exportLibrary(question.library);
 

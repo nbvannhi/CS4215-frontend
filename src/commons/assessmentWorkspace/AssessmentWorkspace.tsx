@@ -10,8 +10,8 @@ import {
   SpinnerSize
 } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
-import { stringify } from 'calc-slang/dist/utils/stringify';
+import { Chapter, Variant } from 'c-slang/dist/types';
+import { stringify } from 'c-slang/dist/utils/stringify';
 import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import * as React from 'react';
@@ -378,93 +378,93 @@ const AssessmentWorkspace: React.FC<AssessmentWorkspaceProps> = props => {
 
     const tabs: SideContentTab[] = isContestVoting
       ? [
-          {
-            label: `Question ${questionId + 1}`,
-            iconName: IconNames.NINJA,
-            body: <Markdown content={props.assessment!.questions[questionId].content} />,
-            id: SideContentType.questionOverview
-          },
-          {
-            label: `Contest Voting Briefing`,
-            iconName: IconNames.BRIEFCASE,
-            body: <Markdown content={props.assessment!.longSummary} />,
-            id: SideContentType.briefing
-          },
-          {
-            label: 'Contest Voting',
-            iconName: IconNames.NEW_LAYERS,
-            body: (
-              <SideContentContestVotingContainer
-                canSave={props.canSave}
-                handleSave={votingSubmission =>
-                  props.handleSave(
-                    (props.assessment?.questions[questionId] as IContestVotingQuestion).id,
-                    votingSubmission
-                  )
-                }
-                handleContestEntryClick={handleContestEntryClick}
-                contestEntries={
-                  (props.assessment?.questions[questionId] as IContestVotingQuestion)
-                    ?.contestEntries ?? []
-                }
-              />
-            ),
-            id: SideContentType.contestVoting
-          },
-          {
-            label: 'Contest Leaderboard',
-            iconName: IconNames.CROWN,
-            body: (
-              <SideContentContestLeaderboard
-                handleContestEntryClick={handleContestEntryClick}
-                orderedContestEntries={
-                  (props.assessment?.questions[questionId] as IContestVotingQuestion)
-                    ?.contestLeaderboard ?? []
-                }
-              />
-            ),
-            id: SideContentType.contestLeaderboard
-          }
-        ]
+        {
+          label: `Question ${questionId + 1}`,
+          iconName: IconNames.NINJA,
+          body: <Markdown content={props.assessment!.questions[questionId].content} />,
+          id: SideContentType.questionOverview
+        },
+        {
+          label: `Contest Voting Briefing`,
+          iconName: IconNames.BRIEFCASE,
+          body: <Markdown content={props.assessment!.longSummary} />,
+          id: SideContentType.briefing
+        },
+        {
+          label: 'Contest Voting',
+          iconName: IconNames.NEW_LAYERS,
+          body: (
+            <SideContentContestVotingContainer
+              canSave={props.canSave}
+              handleSave={votingSubmission =>
+                props.handleSave(
+                  (props.assessment?.questions[questionId] as IContestVotingQuestion).id,
+                  votingSubmission
+                )
+              }
+              handleContestEntryClick={handleContestEntryClick}
+              contestEntries={
+                (props.assessment?.questions[questionId] as IContestVotingQuestion)
+                  ?.contestEntries ?? []
+              }
+            />
+          ),
+          id: SideContentType.contestVoting
+        },
+        {
+          label: 'Contest Leaderboard',
+          iconName: IconNames.CROWN,
+          body: (
+            <SideContentContestLeaderboard
+              handleContestEntryClick={handleContestEntryClick}
+              orderedContestEntries={
+                (props.assessment?.questions[questionId] as IContestVotingQuestion)
+                  ?.contestLeaderboard ?? []
+              }
+            />
+          ),
+          id: SideContentType.contestLeaderboard
+        }
+      ]
       : [
-          {
-            label: `Question ${questionId + 1}`,
-            iconName: IconNames.NINJA,
-            body: (
-              <Markdown
-                className="sidecontent-overview"
-                content={props.assessment!.questions[questionId].content}
-              />
-            ),
-            id: SideContentType.questionOverview
-          },
-          {
-            label: `Briefing`,
-            iconName: IconNames.BRIEFCASE,
-            body: (
-              <Markdown className="sidecontent-overview" content={props.assessment!.longSummary} />
-            ),
-            id: SideContentType.briefing
-          },
-          {
-            label: `Autograder`,
-            iconName: IconNames.AIRPLANE,
-            body: (
-              <SideContentAutograder
-                testcases={props.editorTestcases}
-                autogradingResults={
-                  // Display autograding results if assessment has been graded by an avenger, OR does not need to be manually graded
-                  isGraded || !props.assessmentConfiguration.isManuallyGraded
-                    ? props.autogradingResults
-                    : []
-                }
-                handleTestcaseEval={id => dispatch(evalTestcase(workspaceLocation, id))}
-                workspaceLocation="assessment"
-              />
-            ),
-            id: SideContentType.autograder
-          }
-        ];
+        {
+          label: `Question ${questionId + 1}`,
+          iconName: IconNames.NINJA,
+          body: (
+            <Markdown
+              className="sidecontent-overview"
+              content={props.assessment!.questions[questionId].content}
+            />
+          ),
+          id: SideContentType.questionOverview
+        },
+        {
+          label: `Briefing`,
+          iconName: IconNames.BRIEFCASE,
+          body: (
+            <Markdown className="sidecontent-overview" content={props.assessment!.longSummary} />
+          ),
+          id: SideContentType.briefing
+        },
+        {
+          label: `Autograder`,
+          iconName: IconNames.AIRPLANE,
+          body: (
+            <SideContentAutograder
+              testcases={props.editorTestcases}
+              autogradingResults={
+                // Display autograding results if assessment has been graded by an avenger, OR does not need to be manually graded
+                isGraded || !props.assessmentConfiguration.isManuallyGraded
+                  ? props.autogradingResults
+                  : []
+              }
+              handleTestcaseEval={id => dispatch(evalTestcase(workspaceLocation, id))}
+              workspaceLocation="assessment"
+            />
+          ),
+          id: SideContentType.autograder
+        }
+      ];
 
     if (isGraded) {
       tabs.push({
@@ -624,7 +624,7 @@ const AssessmentWorkspace: React.FC<AssessmentWorkspaceProps> = props => {
 
     const saveButton =
       props.canSave &&
-      props.assessment!.questions[questionId].type === QuestionTypes.programming ? (
+        props.assessment!.questions[questionId].type === QuestionTypes.programming ? (
         <ControlButtonSaveButton
           hasUnsavedChanges={props.hasUnsavedChanges}
           onClickSave={onClickSave}
@@ -632,7 +632,7 @@ const AssessmentWorkspace: React.FC<AssessmentWorkspaceProps> = props => {
         />
       ) : null;
 
-    const handleChapterSelect = () => {};
+    const handleChapterSelect = () => { };
 
     const chapterSelect = (
       <ControlBarChapterSelect
@@ -770,25 +770,25 @@ const AssessmentWorkspace: React.FC<AssessmentWorkspaceProps> = props => {
   const editorContainerProps: NormalEditorContainerProps | undefined =
     question.type === QuestionTypes.programming || question.type === QuestionTypes.voting
       ? {
-          editorVariant: 'normal',
-          editorTabs: props.editorTabs.map(convertEditorTabStateToProps),
-          editorSessionId: '',
-          sourceChapter: Chapter.CALC,
-          sourceVariant: question.library.variant ?? Variant.DEFAULT,
-          externalLibraryName: question.library.external.name || 'NONE',
-          handleDeclarationNavigate: (cursorPosition: Position) =>
-            dispatch(navigateToDeclaration(workspaceLocation, cursorPosition)),
-          handleEditorEval: handleEval,
-          handleEditorValueChange: props.handleEditorValueChange,
-          handleUpdateHasUnsavedChanges: props.handleUpdateHasUnsavedChanges,
-          handleEditorUpdateBreakpoints: props.handleEditorUpdateBreakpoints,
-          handlePromptAutocomplete: (row: number, col: number, callback: any) =>
-            dispatch(promptAutocomplete(workspaceLocation, row, col, callback)),
-          isEditorAutorun: false,
-          onChange: onChangeMethod,
-          onCursorChange: onCursorChangeMethod,
-          onSelectionChange: onSelectionChangeMethod
-        }
+        editorVariant: 'normal',
+        editorTabs: props.editorTabs.map(convertEditorTabStateToProps),
+        editorSessionId: '',
+        sourceChapter: Chapter.CALC,
+        sourceVariant: question.library.variant ?? Variant.DEFAULT,
+        externalLibraryName: question.library.external.name || 'NONE',
+        handleDeclarationNavigate: (cursorPosition: Position) =>
+          dispatch(navigateToDeclaration(workspaceLocation, cursorPosition)),
+        handleEditorEval: handleEval,
+        handleEditorValueChange: props.handleEditorValueChange,
+        handleUpdateHasUnsavedChanges: props.handleUpdateHasUnsavedChanges,
+        handleEditorUpdateBreakpoints: props.handleEditorUpdateBreakpoints,
+        handlePromptAutocomplete: (row: number, col: number, callback: any) =>
+          dispatch(promptAutocomplete(workspaceLocation, row, col, callback)),
+        isEditorAutorun: false,
+        onChange: onChangeMethod,
+        onCursorChange: onCursorChangeMethod,
+        onSelectionChange: onSelectionChangeMethod
+      }
       : undefined;
   const mcqProps = {
     mcq: question as IMCQQuestion,

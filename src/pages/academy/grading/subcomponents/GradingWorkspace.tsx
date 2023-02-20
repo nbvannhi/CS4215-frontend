@@ -1,6 +1,6 @@
 import { Classes, NonIdealState, Spinner, SpinnerSize } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import classNames from 'classnames';
 import * as React from 'react';
 import SideContentToneMatrix from 'src/commons/sideContent/SideContentToneMatrix';
@@ -182,24 +182,24 @@ class GradingWorkspace extends React.Component<GradingWorkspaceProps, State> {
       editorContainerProps:
         question.type === QuestionTypes.programming || question.type === QuestionTypes.voting
           ? {
-              editorVariant: 'normal',
-              editorTabs: this.props.editorTabs.map(convertEditorTabStateToProps),
-              editorSessionId: '',
-              handleDeclarationNavigate: this.props.handleDeclarationNavigate,
-              handleEditorEval: this.handleEval,
-              handleEditorValueChange: this.props.handleEditorValueChange,
-              handleEditorUpdateBreakpoints: this.props.handleEditorUpdateBreakpoints,
-              handlePromptAutocomplete: this.props.handlePromptAutocomplete,
-              isEditorAutorun: false,
-              sourceChapter: Chapter.CALC,
-              sourceVariant: question?.library?.variant ?? Variant.DEFAULT,
-              externalLibraryName: question?.library?.external?.name || 'NONE'
-            }
+            editorVariant: 'normal',
+            editorTabs: this.props.editorTabs.map(convertEditorTabStateToProps),
+            editorSessionId: '',
+            handleDeclarationNavigate: this.props.handleDeclarationNavigate,
+            handleEditorEval: this.handleEval,
+            handleEditorValueChange: this.props.handleEditorValueChange,
+            handleEditorUpdateBreakpoints: this.props.handleEditorUpdateBreakpoints,
+            handlePromptAutocomplete: this.props.handlePromptAutocomplete,
+            isEditorAutorun: false,
+            sourceChapter: Chapter.CALC,
+            sourceVariant: question?.library?.variant ?? Variant.DEFAULT,
+            externalLibraryName: question?.library?.external?.name || 'NONE'
+          }
           : undefined,
       handleSideContentHeightChange: this.props.handleSideContentHeightChange,
       mcqProps: {
         mcq: question as IMCQQuestion,
-        handleMCQSubmit: (i: number) => {}
+        handleMCQSubmit: (i: number) => { }
       },
       sideBarProps: {
         tabs: []

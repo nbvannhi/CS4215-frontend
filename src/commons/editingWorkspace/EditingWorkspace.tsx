@@ -8,7 +8,7 @@ import {
   SpinnerSize
 } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 
@@ -596,32 +596,32 @@ const EditingWorkspace: React.FC<EditingWorkspaceProps> = props => {
     editorContainerProps:
       question.type === QuestionTypes.programming
         ? {
-            editorVariant: 'normal',
-            editorTabs: props.editorTabs
-              .map(convertEditorTabStateToProps)
-              .map((editorTabStateProps, index) => {
-                // TODO: Hardcoded to make use of the first editor tab. Rewrite after editor tabs are added.
-                //       Specifically, need to update questions such that they can span multiple files.
-                if (index !== 0) {
-                  return editorTabStateProps;
-                }
-                return {
-                  ...editorTabStateProps,
-                  editorValue:
-                    editorTabStateProps.editorValue ||
-                    question.editorValue ||
-                    (question as IProgrammingQuestion).solutionTemplate
-                };
-              }),
-            editorSessionId: '',
-            handleDeclarationNavigate: props.handleDeclarationNavigate,
-            handleEditorEval: props.handleEditorEval,
-            handleEditorValueChange: props.handleEditorValueChange,
-            handleEditorUpdateBreakpoints: props.handleEditorUpdateBreakpoints,
-            handleUpdateHasUnsavedChanges: props.handleUpdateHasUnsavedChanges,
-            handlePromptAutocomplete: props.handlePromptAutocomplete,
-            isEditorAutorun: false
-          }
+          editorVariant: 'normal',
+          editorTabs: props.editorTabs
+            .map(convertEditorTabStateToProps)
+            .map((editorTabStateProps, index) => {
+              // TODO: Hardcoded to make use of the first editor tab. Rewrite after editor tabs are added.
+              //       Specifically, need to update questions such that they can span multiple files.
+              if (index !== 0) {
+                return editorTabStateProps;
+              }
+              return {
+                ...editorTabStateProps,
+                editorValue:
+                  editorTabStateProps.editorValue ||
+                  question.editorValue ||
+                  (question as IProgrammingQuestion).solutionTemplate
+              };
+            }),
+          editorSessionId: '',
+          handleDeclarationNavigate: props.handleDeclarationNavigate,
+          handleEditorEval: props.handleEditorEval,
+          handleEditorValueChange: props.handleEditorValueChange,
+          handleEditorUpdateBreakpoints: props.handleEditorUpdateBreakpoints,
+          handleUpdateHasUnsavedChanges: props.handleUpdateHasUnsavedChanges,
+          handlePromptAutocomplete: props.handlePromptAutocomplete,
+          isEditorAutorun: false
+        }
         : undefined,
     handleSideContentHeightChange: props.handleSideContentHeightChange,
     hasUnsavedChanges: hasUnsavedChanges,

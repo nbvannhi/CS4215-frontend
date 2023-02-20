@@ -1,6 +1,6 @@
 import { SlingClient } from '@sourceacademy/sling-client';
-import { ExceptionError } from 'calc-slang/dist/errors/errors';
-import { Variant } from 'calc-slang/dist/types';
+import { ExceptionError } from 'c-slang/dist/errors/errors';
+import { Variant } from 'c-slang/dist/types';
 import _ from 'lodash';
 import { SagaIterator } from 'redux-saga';
 import { call, put, race, select, take } from 'redux-saga/effects';
@@ -102,7 +102,7 @@ export function* remoteExecutionSaga(): SagaIterator {
       if (oldClient) {
         try {
           oldClient.disconnect();
-        } catch {}
+        } catch { }
       }
       const client: SlingClient = new SlingClient({
         clientId: `${endpoint.clientNamePrefix}${generateClientNonce()}`,

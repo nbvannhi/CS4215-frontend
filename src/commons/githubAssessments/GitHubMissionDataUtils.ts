@@ -3,7 +3,7 @@ import {
   GetResponseDataTypeFromEndpointMethod,
   GetResponseTypeFromEndpointMethod
 } from '@octokit/types';
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 import { isEqual } from 'lodash';
 
 import { IMCQQuestion, Testcase } from '../assessment/AssessmentTypes';
@@ -365,7 +365,7 @@ export function discoverFilesToBeChangedWithMissionRepoData(
         // replace changes to savedCode with changes to starterCode
         const savedCodeValue =
           filenameToContentMap[
-            questionFolderName + '/' + taskDataPropertyTable['savedCode'].fileName
+          questionFolderName + '/' + taskDataPropertyTable['savedCode'].fileName
           ];
         delete filenameToContentMap[
           questionFolderName + '/' + taskDataPropertyTable['savedCode'].fileName

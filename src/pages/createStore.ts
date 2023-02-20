@@ -1,4 +1,4 @@
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 import { throttle } from 'lodash';
 import { applyMiddleware, compose, createStore as _createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
@@ -17,9 +17,9 @@ export function createStore() {
 
   const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        serialize: true,
-        maxAge: 300
-      }) || compose
+      serialize: true,
+      maxAge: 300
+    }) || compose
     : compose;
 
   const initialStore = loadStore(loadStoredState()) || defaultState;
@@ -59,15 +59,15 @@ function loadStore(loadedStore: SavedState | undefined) {
         ...defaultState.workspaces.playground,
         editorTabs: loadedStore.playgroundEditorValue
           ? // TODO: Hardcoded to make use of the first editor tab. Rewrite after editor tabs are added.
-            [
-              {
-                value: loadedStore.playgroundEditorValue,
-                prependValue: '',
-                postpendValue: '',
-                highlightedLines: [],
-                breakpoints: []
-              }
-            ]
+          [
+            {
+              value: loadedStore.playgroundEditorValue,
+              prependValue: '',
+              postpendValue: '',
+              highlightedLines: [],
+              breakpoints: []
+            }
+          ]
           : defaultState.workspaces.playground.editorTabs,
         isEditorAutorun: loadedStore.playgroundIsEditorAutorun
           ? loadedStore.playgroundIsEditorAutorun

@@ -1,4 +1,4 @@
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import { cloneDeep } from 'lodash';
 
 import {
@@ -1472,15 +1472,15 @@ describe('TOGGLE_USING_SUBST', () => {
       const expectedResult =
         location === playgroundWorkspace || location === sicpWorkspace
           ? {
-              ...defaultWorkspaceManager,
-              [location]: {
-                ...defaultWorkspaceManager[location],
-                usingSubst: true
-              }
+            ...defaultWorkspaceManager,
+            [location]: {
+              ...defaultWorkspaceManager[location],
+              usingSubst: true
             }
+          }
           : {
-              ...defaultWorkspaceManager
-            };
+            ...defaultWorkspaceManager
+          };
 
       expect(result).toEqual(expectedResult);
     });

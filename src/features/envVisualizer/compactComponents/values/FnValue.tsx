@@ -1,4 +1,4 @@
-import { Environment } from 'calc-slang/dist/types';
+import { Environment } from 'c-slang/dist/types';
 import { KonvaEventObject } from 'konva/lib/Node';
 import React, { RefObject } from 'react';
 import {
@@ -112,7 +112,7 @@ export class FnValue extends Value implements IHoverable {
     this.labelRef.current.hide();
     setUnhoveredStyle(currentTarget);
   };
-  updatePosition(): void {}
+  updatePosition(): void { }
   draw(): React.ReactNode {
     this._arrow =
       this.enclosingEnvNode.compactFrame &&

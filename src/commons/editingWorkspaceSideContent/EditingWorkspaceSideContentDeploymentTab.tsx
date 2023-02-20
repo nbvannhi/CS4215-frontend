@@ -1,7 +1,7 @@
 import { Button, Classes, Divider, MenuItem, Switch } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { ItemRenderer, Select } from '@blueprintjs/select';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import * as React from 'react';
 
 import { SALanguage, sourceLanguages, styliseSublanguage } from '../application/ApplicationTypes';
@@ -248,7 +248,7 @@ const altEval = (str: string): any => {
 
 const chapterSelect = (
   variant: Variant = Variant.DEFAULT,
-  handleSelect = (i: SALanguage, e?: React.SyntheticEvent<HTMLElement>) => {}
+  handleSelect = (i: SALanguage, e?: React.SyntheticEvent<HTMLElement>) => { }
 ) => (
   <ChapterSelectComponent
     className={Classes.MINIMAL}

@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import { Provider } from 'react-redux';
 import { mockInitialStore } from 'src/commons/mocks/StoreMocks';
 
@@ -30,13 +30,13 @@ const baseProps = assertType<PlaygroundProps>()({
   persistenceFile: undefined,
   githubOctokitObject: { octokit: undefined },
   githubSaveInfo: { repoName: '', filePath: '' },
-  handleChangeExecTime: (execTime: number) => {},
-  handleChapterSelect: (chapter: Chapter) => {},
-  handleEditorValueChange: () => {},
-  handleEditorUpdateBreakpoints: (breakpoints: string[]) => {},
-  handleReplEval: () => {},
-  handleReplOutputClear: () => {},
-  handleUsingSubst: (usingSubst: boolean) => {}
+  handleChangeExecTime: (execTime: number) => { },
+  handleChapterSelect: (chapter: Chapter) => { },
+  handleEditorValueChange: () => { },
+  handleEditorUpdateBreakpoints: (breakpoints: string[]) => { },
+  handleReplEval: () => { },
+  handleReplOutputClear: () => { },
+  handleUsingSubst: (usingSubst: boolean) => { }
 });
 
 const testValueProps: PlaygroundProps = {

@@ -2,9 +2,9 @@
 import { Ace, require as acequire } from 'ace-builds';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/ext-searchbox';
-import 'calc-slang/dist/editors/ace/theme/source';
+import 'c-slang/dist/editors/ace/theme/source';
 
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import * as React from 'react';
 import AceEditor, { IAceEditorProps, IEditorProps } from 'react-ace';
 import * as AceBuilds from 'ace-builds';
@@ -108,33 +108,33 @@ const getMarkers = (
 
 const makeHandleGutterClick =
   (handleEditorUpdateBreakpoints: DispatchProps['handleEditorUpdateBreakpoints']) =>
-  (e: AceMouseEvent) => {
-    const target = e.domEvent.target! as HTMLDivElement;
-    if (
-      target.className.indexOf('ace_gutter-cell') === -1 ||
-      !e.editor.isFocused() ||
-      e.clientX > 35 + target.getBoundingClientRect().left
-    ) {
-      return;
-    }
+    (e: AceMouseEvent) => {
+      const target = e.domEvent.target! as HTMLDivElement;
+      if (
+        target.className.indexOf('ace_gutter-cell') === -1 ||
+        !e.editor.isFocused() ||
+        e.clientX > 35 + target.getBoundingClientRect().left
+      ) {
+        return;
+      }
 
-    // Breakpoint related.
-    const row = e.getDocumentPosition().row;
-    const content = e.editor.session.getLine(row);
-    const breakpoints = e.editor.session.getBreakpoints();
-    if (
-      breakpoints[row] === undefined &&
-      content.length !== 0 &&
-      !content.includes('//') &&
-      !content.includes('debugger;')
-    ) {
-      e.editor.session.setBreakpoint(row, undefined!);
-    } else {
-      e.editor.session.clearBreakpoint(row);
-    }
-    e.stop();
-    handleEditorUpdateBreakpoints(e.editor.session.getBreakpoints());
-  };
+      // Breakpoint related.
+      const row = e.getDocumentPosition().row;
+      const content = e.editor.session.getLine(row);
+      const breakpoints = e.editor.session.getBreakpoints();
+      if (
+        breakpoints[row] === undefined &&
+        content.length !== 0 &&
+        !content.includes('//') &&
+        !content.includes('debugger;')
+      ) {
+        e.editor.session.setBreakpoint(row, undefined!);
+      } else {
+        e.editor.session.clearBreakpoint(row);
+      }
+      e.stop();
+      handleEditorUpdateBreakpoints(e.editor.session.getBreakpoints());
+    };
 
 // Note: This is untestable/unused because JS-hint has been removed.
 const makeHandleAnnotationChange = (session: Ace.EditSession) => () => {
@@ -182,7 +182,7 @@ const moveCursor = (editor: AceEditor['editor'], position: Position) => {
 
 /* Override handler, so does not trigger when focus is in editor */
 const handlers = {
-  goGreen: () => {}
+  goGreen: () => { }
 };
 
 const EditorBase = React.memo((props: EditorProps & LocalStateProps) => {

@@ -1,7 +1,7 @@
 import { Card, Classes, Pre } from '@blueprintjs/core';
 import { Ace } from 'ace-builds';
-import { parseError } from 'calc-slang';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { parseError } from 'c-slang';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import classNames from 'classnames';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
@@ -122,7 +122,7 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
 
 /* Override handler, so does not trigger when focus is in editor */
 const handlers = {
-  goGreen: () => {}
+  goGreen: () => { }
 };
 
 export default Repl;
