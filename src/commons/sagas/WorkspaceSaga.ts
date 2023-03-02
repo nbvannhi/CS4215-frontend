@@ -3,10 +3,10 @@ import {
   findDeclaration,
   interrupt,
   runInContext
-} from 'calc-slang';
-import { InterruptedError } from 'calc-slang/dist/errors/errors';
-import { parse } from 'calc-slang/dist/parser/parser';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+} from 'c-slang';
+import { InterruptedError } from 'c-slang/dist/errors/errors';
+import { parse } from 'c-slang/dist/parser/parser';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import { random } from 'lodash';
 import Phaser from 'phaser';
 import { SagaIterator } from 'redux-saga';
@@ -548,13 +548,13 @@ export function* evalCode(
   const { result, interrupted, paused } = yield race({
     result:
       call(runInContext, code, context, {
-            scheduler: 'preemptive',
-            executionMethod: 'interpreter',
-            originalMaxExecTime: execTime,
-            stepLimit: stepLimit,
-            variant: Variant.DEFAULT,
-            useSubst: false
-          }),
+        scheduler: 'preemptive',
+        executionMethod: 'interpreter',
+        originalMaxExecTime: execTime,
+        stepLimit: stepLimit,
+        variant: Variant.DEFAULT,
+        useSubst: false
+      }),
 
     /**
      * A BEGIN_INTERRUPT_EXECUTION signals the beginning of an interruption,
@@ -605,7 +605,7 @@ export function* evalCode(
     yield put(actions.endDebuggerPause(workspaceLocation));
     yield put(actions.evalInterpreterSuccess('Breakpoint hit!', workspaceLocation));
     return;
-  } 
+  }
   yield* dumpDisplayBuffer(workspaceLocation);
   // Do not write interpreter output to REPL, if executing chunks (e.g. prepend/postpend blocks)
   if (actionType !== EVAL_SILENT) {

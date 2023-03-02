@@ -1,5 +1,5 @@
 import { Ace } from 'ace-builds/ace';
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 
 import { ExternalLibraryName } from '../../commons/application/types/ExternalTypes';
 import { Position } from '../../commons/editor/EditorTypes';
@@ -46,8 +46,8 @@ export type SelectionData = {
 // Refer: https://stackoverflow.com/questions/55758713/match-pair-for-keyof-and-valueof-an-interface
 export type Input = keyof InputTypeShape extends infer K
   ? K extends keyof InputTypeShape
-    ? { time: number; type: K; data: InputTypeShape[K] }
-    : never
+  ? { time: number; type: K; data: InputTypeShape[K] }
+  : never
   : never;
 
 export type PlaybackData = {

@@ -1,7 +1,7 @@
 import 'src/styles/index.scss';
 
 import * as Sentry from '@sentry/browser';
-// import { setModulesStaticURL } from 'calc-slang/dist/modules/moduleLoader';
+// import { setModulesStaticURL } from 'c-slang/dist/modules/moduleLoader';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
@@ -29,7 +29,7 @@ const rootContainer = document.getElementById('root') as HTMLElement;
 (window as any).__REDUX_STORE__ = store; // need this for slang's display
 console.log(
   `%cSource Academy ${Constants.sourceAcademyEnvironment}-${Constants.sourceAcademyVersion}; ` +
-    `Please visit ${Links.githubIssues} to report bugs or issues.`,
+  `Please visit ${Links.githubIssues} to report bugs or issues.`,
   'font-weight: bold;'
 );
 

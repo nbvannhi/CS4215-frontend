@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme';
-import { ErrorSeverity, ErrorType, SourceError } from 'calc-slang/dist/types';
+import { ErrorSeverity, ErrorType, SourceError } from 'c-slang/dist/types';
 
 import { AutogradingResult, Testcase, TestcaseTypes } from '../../assessment/AssessmentTypes';
 import { mockGrading } from '../../mocks/GradingMocks';
@@ -92,7 +92,7 @@ test('Autograder renders placeholders correctly when testcases and results are e
     autogradingResults: [],
     testcases: [],
     workspaceLocation: 'assessment',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = shallow(app);
@@ -112,7 +112,7 @@ test('Autograder renders public testcases with different statuses correctly', ()
     autogradingResults: [],
     testcases: mockPublicTestcases,
     workspaceLocation: 'assessment',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = mount(app);
@@ -153,7 +153,7 @@ test('Autograder renders opaque testcases with different statuses correctly in A
     autogradingResults: [],
     testcases: mockOpaqueTestcases,
     workspaceLocation: 'assessment',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = mount(app);
@@ -177,7 +177,7 @@ test('Autograder renders opaque testcases with different statuses correctly in G
     autogradingResults: [],
     testcases: mockOpaqueTestcases,
     workspaceLocation: 'grading',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = mount(app);
@@ -206,7 +206,7 @@ test('Autograder renders secret testcases with different statuses correctly', ()
     autogradingResults: [],
     testcases: mockSecretTestcases,
     workspaceLocation: 'grading',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = mount(app);
@@ -241,7 +241,7 @@ test('Autograder renders autograder results with different statuses correctly', 
     autogradingResults: mockAutogradingResults,
     testcases: [],
     workspaceLocation: 'assessment',
-    handleTestcaseEval: (testcaseId: number) => {}
+    handleTestcaseEval: (testcaseId: number) => { }
   };
   const app = <SideContentAutograder {...props} />;
   const tree = mount(app);
@@ -273,7 +273,7 @@ test('Autograder renders autograder results with different statuses correctly', 
       'ERROR',
       '',
       '[TIMEOUT] Submission exceeded time limit for this test case.\n\n' +
-        '[SYNTAX] Line 2: Missing semicolon at the end of statement'
+      '[SYNTAX] Line 2: Missing semicolon at the end of statement'
     ]
   ]);
 });

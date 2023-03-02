@@ -1,6 +1,6 @@
 import 'ace-builds/src-noconflict/ext-searchbox';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'calc-slang/dist/editors/ace/theme/source';
+import 'c-slang/dist/editors/ace/theme/source';
 
 import { Ace } from 'ace-builds';
 import { isEqual } from 'lodash';
@@ -320,7 +320,7 @@ class SourcecastEditor extends React.PureComponent<SourceRecorderEditorProps, {}
 
 /* Override handler, so does not trigger when focus is in editor */
 const handlers = {
-  goGreen: () => {}
+  goGreen: () => { }
 };
 
 export default SourcecastEditor;

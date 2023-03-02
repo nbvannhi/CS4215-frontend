@@ -1,4 +1,4 @@
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 
 import { IMCQQuestion } from '../../commons/assessment/AssessmentTypes';
 import { MissionMetadata, TaskData } from '../../commons/githubAssessments/GitHubMissionTypes';

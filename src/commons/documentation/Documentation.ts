@@ -1,4 +1,4 @@
-import { SourceDocumentation } from 'calc-slang';
+import { SourceDocumentation } from 'c-slang';
 import { deviceTypes } from 'src/features/remoteExecution/RemoteExecutionTypes';
 
 import { externalLibraries } from '../application/types/ExternalTypes';

@@ -1,6 +1,6 @@
 import { ButtonGroup, Slider } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { Chapter } from 'calc-slang/dist/types';
+import { Chapter } from 'c-slang/dist/types';
 import * as React from 'react';
 
 import {
@@ -88,7 +88,7 @@ class SourceRecorderControlBar extends React.PureComponent<SourceRecorderControl
           onSeeked={this.handleSeeked}
           onTimeUpdate={this.updatePlayerTime}
           preload="metadata"
-          // controls={true}
+        // controls={true}
         />
         <br />
         <div className="PlayerControl">

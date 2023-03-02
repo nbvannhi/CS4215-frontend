@@ -1,4 +1,4 @@
-import { Variant } from 'calc-slang/dist/types';
+import { Variant } from 'c-slang/dist/types';
 import { compressToEncodedURIComponent } from 'lz-string';
 import * as qs from 'query-string';
 import { SagaIterator } from 'redux-saga';
@@ -35,7 +35,7 @@ export default function* PlaygroundSaga(): SagaIterator {
 
       resp = result;
       timeout = hasTimedOut;
-    } catch (_) {}
+    } catch (_) { }
 
     if (!resp || timeout) {
       yield put(updateShortURL(errorMsg));

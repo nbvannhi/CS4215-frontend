@@ -1,7 +1,7 @@
 import { Button, Classes, Menu, MenuItem } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { ItemListRenderer, ItemRenderer, Select } from '@blueprintjs/select';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import React from 'react';
 
 import {
@@ -41,7 +41,7 @@ const ChapterSelectComponent = Select.ofType<SALanguage>();
 export const ControlBarChapterSelect: React.FC<ControlBarChapterSelectProps> = ({
   sourceChapter,
   sourceVariant,
-  handleChapterSelect = () => {},
+  handleChapterSelect = () => { },
   disabled = false
 }) => {
   return (

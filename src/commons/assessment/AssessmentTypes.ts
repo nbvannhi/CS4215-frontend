@@ -1,4 +1,4 @@
-import { SourceError, Variant } from 'calc-slang/dist/types';
+import { SourceError, Variant } from 'c-slang/dist/types';
 
 import { ExternalLibrary, ExternalLibraryName } from '../application/types/ExternalTypes';
 

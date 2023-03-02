@@ -9,7 +9,7 @@ import {
 } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { GetResponseTypeFromEndpointMethod } from '@octokit/types';
-import { Chapter, Variant } from 'calc-slang/dist/types';
+import { Chapter, Variant } from 'c-slang/dist/types';
 import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import React, { useCallback, useEffect, useMemo } from 'react';
@@ -926,7 +926,7 @@ const GitHubAssessmentWorkspace: React.FC<GitHubAssessmentWorkspaceProps> = prop
 
     const chapterSelect = (
       <ControlBarChapterSelect
-        handleChapterSelect={() => {}}
+        handleChapterSelect={() => { }}
         sourceChapter={missionMetadata.sourceVersion}
         sourceVariant={Constants.defaultSourceVariant}
         disabled={true}
@@ -1062,9 +1062,9 @@ const GitHubAssessmentWorkspace: React.FC<GitHubAssessmentWorkspaceProps> = prop
   const mcqProps = useMemo(() => {
     return currentTaskIsMCQ && displayMCQInEditor
       ? {
-          mcq: mcqQuestion,
-          handleMCQSubmit: handleMCQSubmit
-        }
+        mcq: mcqQuestion,
+        handleMCQSubmit: handleMCQSubmit
+      }
       : undefined;
   }, [currentTaskIsMCQ, displayMCQInEditor, mcqQuestion, handleMCQSubmit]);
 
